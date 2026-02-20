@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Email Configuration (Gmail Example - Requires App Password)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
+app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 # Clean password just in case (remove spaces)
@@ -207,3 +207,4 @@ def contact_submit():
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
+
