@@ -1,0 +1,219 @@
+:root {
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --navy-lighter: #233554;
+    --navy-dark: #020c1b;
+    /* Silver / Platinum Theme */
+    --gold: #E5E4E2;
+    /* Platinum */
+    --gold-light: #FFFFFF;
+    /* High shine */
+    --gold-dark: #A0A0A0;
+    /* Deep Silver */
+    --white: #F0F4F8;
+    /* Slightly cool white */
+    --slate: #94A3B8;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--white);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Utilities */
+.text-gold {
+    color: var(--gold);
+}
+
+.bg-navy {
+    background-color: var(--navy);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Advanced Glassmorphism */
+.glass-panel {
+    background: rgba(17, 34, 64, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.glass-panel:hover {
+    background: rgba(17, 34, 64, 0.9);
+    border: 1px solid var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(229, 228, 226, 0.15);
+    /* Platinum Glow */
+}
+
+.glass-header {
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(229, 228, 226, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
+/* Text Gradients & Effects */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E5E4E2 40%, #A0A0A0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+}
+
+.text-gradient-navy {
+    background: linear-gradient(to right, var(--navy-light), var(--navy));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Scroll Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--navy-light);
+    border-radius: 4px;
+    border: 1px solid var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Button Shine Effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn-shine:hover::after {
+    left: 100%;
+}
+
+/* New Animations */
+
+/* Slow Pulse for Background */
+@keyframes pulse-slow {
+
+    0%,
+    100% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 20s infinite ease-in-out;
+}
+
+/* Fast Shine for Card Hover */
+@keyframes shine-fast {
+    100% {
+        transform: translateX(200%) skewX(12deg);
+    }
+}
+
+.animate-shine-fast {
+    animation: shine-fast 0.7s;
+}
+
+/* Counter Animation Helper */
+.counter {
+    font-variant-numeric: tabular-nums;
+}

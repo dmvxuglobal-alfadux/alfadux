@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="pt-32 pb-20 bg-navy min-h-screen">
+    <div class="container mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 fade-in-section text-center max-w-4xl mx-auto">
+            <div
+                class="inline-block px-4 py-1 border border-gold/30 rounded-full bg-navy-light/40 backdrop-blur-md mb-6">
+                <span class="text-gold text-[10px] font-bold tracking-[0.2em] uppercase">The Pinnacle of
+                    Education</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-6">Doctor of Business Administration</h1>
+            <p class="text-slate-400 text-xl font-light">
+                Offered by Golden Gate University, San Francisco. <br />
+                <span class="text-gold italic">Equivalent to a U.S. Ph.D. for working executives.</span>
+            </p>
+        </div>
+
+        <!-- Credentials Bar -->
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-20 fade-in-section">
+            <div class="flex items-center text-slate-300">
+                <i data-lucide="check-circle" class="mr-2 text-gold"></i> WASC Accredited
+            </div>
+            <div class="flex items-center text-slate-300">
+                <i data-lucide="check-circle" class="mr-2 text-gold"></i> WES Recognized
+            </div>
+            <div class="flex items-center text-slate-300">
+                <i data-lucide="check-circle" class="mr-2 text-gold"></i> GGU Alumni Status
+            </div>
+            <div class="flex items-center text-slate-300">
+                <i data-lucide="check-circle" class="mr-2 text-gold"></i> 120+ Year Legacy
+            </div>
+        </div>
+
+        <!-- University Partners -->
+        <h2 class="text-3xl font-serif text-white mb-10 text-center fade-in-section">Our DBA University Partners</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 fade-in-section">
+            <a href="{{ url_for('golden_gate') }}"
+                class="glass-panel p-6 rounded-sm hover:-translate-y-2 transition-transform duration-300 block border-t-2 border-transparent hover:border-gold group">
+                <div class="h-16 flex items-center mb-4">
+                    <!-- Placeholder logo, ideally use actual image -->
+                    <span class="text-xl font-bold text-white group-hover:text-gold transition-colors">Golden Gate
+                        University</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">San Francisco, USA</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold text-right block">View Program
+                    &rarr;</span>
+            </a>
+
+            <a href="{{ url_for('rushford') }}"
+                class="glass-panel p-6 rounded-sm hover:-translate-y-2 transition-transform duration-300 block border-t-2 border-transparent hover:border-gold group">
+                <div class="h-16 flex items-center mb-4">
+                    <span class="text-xl font-bold text-white group-hover:text-gold transition-colors">Rushford Business
+                        School</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">Switzerland</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold text-right block">View Program
+                    &rarr;</span>
+            </a>
+
+            <a href="{{ url_for('ssbm') }}"
+                class="glass-panel p-6 rounded-sm hover:-translate-y-2 transition-transform duration-300 block border-t-2 border-transparent hover:border-gold group">
+                <div class="h-16 flex items-center mb-4">
+                    <span class="text-xl font-bold text-white group-hover:text-gold transition-colors">SSBM
+                        Geneva</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">Geneva, Switzerland</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold text-right block">View Program
+                    &rarr;</span>
+            </a>
+
+            <a href="{{ url_for('edgewood') }}"
+                class="glass-panel p-6 rounded-sm hover:-translate-y-2 transition-transform duration-300 block border-t-2 border-transparent hover:border-gold group">
+                <div class="h-16 flex items-center mb-4">
+                    <span class="text-xl font-bold text-white group-hover:text-gold transition-colors">Edgewood
+                        College</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">Madison, USA</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold text-right block">View Program
+                    &rarr;</span>
+            </a>
+
+            <a href="{{ url_for('esgci') }}"
+                class="glass-panel p-6 rounded-sm hover:-translate-y-2 transition-transform duration-300 block border-t-2 border-transparent hover:border-gold group">
+                <div class="h-16 flex items-center mb-4">
+                    <span class="text-xl font-bold text-white group-hover:text-gold transition-colors">ESGCI
+                        Paris</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-4">Paris, France</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold text-right block">View Program
+                    &rarr;</span>
+            </a>
+        </div>
+
+        <!-- The 3-Year Roadmap -->
+        <div class="mb-20">
+            <h2 class="text-3xl font-serif text-white mb-10 text-center fade-in-section">Your 36-Month Journey</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Year 1 -->
+                <div class="glass-panel p-8 relative fade-in-section">
+                    <div class="text-6xl font-serif text-white/5 absolute -right-2 -top-4 font-bold">01</div>
+                    <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Foundation & Theory</h4>
+                    <p class="text-slate-400 text-sm mb-4">Master the scholar-practitioner model. Deep dive into
+                        doctoral research methods and advanced management theories.</p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>• Doctoral Research Methods</li>
+                        <li>• Qualitative/Quantitative Analysis</li>
+                        <li>• Strategic Thinking in the Digital Age</li>
+                    </ul>
+                </div>
+                <!-- Year 2 -->
+                <div class="glass-panel p-8 relative fade-in-section" style="transition-delay: 0.1s">
+                    <div class="text-6xl font-serif text-white/5 absolute -right-2 -top-4 font-bold">02</div>
+                    <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Concentration & Practice</h4>
+                    <p class="text-slate-400 text-sm mb-4">Apply theory to practice. Choose your concentration and begin
+                        shaping your unique contributions to the field.</p>
+                    <div class="bg-navy-dark p-3 rounded-sm border border-gold/20 mb-2">
+                        <span class="text-gold font-bold text-xs blocks">Generative AI Track Available</span>
+                    </div>
+                </div>
+                <!-- Year 3 -->
+                <div class="glass-panel p-8 relative fade-in-section" style="transition-delay: 0.2s">
+                    <div class="text-6xl font-serif text-white/5 absolute -right-2 -top-4 font-bold">03</div>
+                    <h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Dissertation & Defense</h4>
+                    <p class="text-slate-400 text-sm mb-4">Conduct original research under 1:1 supervision from GGU
+                        faculty. Defend your thesis to earn the title of 'Dr'.</p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>• Proposal Defense</li>
+                        <li>• Data Collection & Analysis</li>
+                        <li>• Final Dissertation Defense</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why GenAI Concentration -->
+        <div
+            class="bg-gradient-to-r from-navy-light to-navy border border-white/5 p-10 rounded-sm mb-20 fade-in-section">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/3 text-center md:text-left">
+                    <div
+                        class="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-6">
+                        <i data-lucide="cpu" class="text-gold w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-white mb-2">GenAI Concentration</h3>
+                    <p class="text-slate-400 text-sm">Stand out with a doctorate in the future of business.</p>
+                </div>
+                <div class="md:w-2/3 border-l border-white/10 pl-0 md:pl-10">
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        Our DBA offers a specialized track in <strong>Generative Artificial Intelligence</strong>.
+                        You won't just learn about AI; you will research how it reshapes industries, ethics, and
+                        strategy.
+                        Write the playbook for the next decade of business innovation.
+                    </p>
+                    <div class="flex gap-4">
+                        <span class="bg-white/5 px-4 py-2 text-xs text-slate-300 rounded-full">AI Ethics</span>
+                        <span class="bg-white/5 px-4 py-2 text-xs text-slate-300 rounded-full">Large Language Models in
+                            Biz</span>
+                        <span class="bg-white/5 px-4 py-2 text-xs text-slate-300 rounded-full">AI Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing & Admissions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in-section">
+            <div>
+                <h3 class="text-2xl font-serif text-white mb-6">Class Profile</h3>
+                <p class="text-slate-400 mb-6">Join a cohort of varied accomplished professionals.</p>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-300 mb-1">
+                            <span>Average Work Experience</span>
+                            <span>13+ Years</span>
+                        </div>
+                        <div class="w-full bg-navy-light h-1 rounded-full">
+                            <div class="bg-gold h-1 rounded-full w-[85%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-300 mb-1">
+                            <span>C-Suite / Director Level</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="w-full bg-navy-light h-1 rounded-full">
+                            <div class="bg-gold h-1 rounded-full w-[40%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-8 border-l-4 border-gold">
+                <h3 class="text-xl font-bold text-white mb-4">Investment</h3>
+                <div class="text-4xl font-serif text-gold mb-2">₹9,50,000*</div>
+                <p class="text-xs text-slate-500 mb-8">*Approximate fee after scholarship. EMI options available.</p>
+                <a href="{{ url_for('home', _anchor='contact') }}"
+                    class="w-full block text-center bg-white text-navy font-bold py-4 uppercase tracking-widest hover:bg-gold transition-colors">
+                    Check Scholarship Eligibility
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

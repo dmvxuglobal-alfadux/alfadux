@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="relative min-h-screen py-32 overflow-hidden flex items-center justify-center">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 bg-navy-dark z-0">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-navy-light to-transparent opacity-30">
+        </div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-navy-light to-transparent opacity-30">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12 fade-in-section">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold mb-4 block">Join the Elite</span>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Become a <span
+                        class="text-gradient-gold">Global Mentor</span></h1>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Share your expertise with the next generation of business leaders.
+                </p>
+            </div>
+
+            <!-- Application Form -->
+            <div class="glass-panel p-10 rounded-sm fade-in-section" style="transition-delay: 0.2s">
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div
+                    class="mb-6 p-4 rounded-sm bg-gold/10 border border-gold text-white text-sm animate-pulse-slow flex items-center">
+                    <i data-lucide="check-circle" class="w-5 h-5 mr-3 text-gold"></i>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('mentor_apply_submit') }}" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Full Name</label>
+                            <input type="text" name="full_name" required
+                                class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm"
+                                placeholder="Dr. Jane Smith">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Mobile
+                                Number</label>
+                            <input type="tel" name="mobile_number" required
+                                class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm"
+                                placeholder="+1 555 000 0000">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Email
+                                Address</label>
+                            <input type="email" name="email" required
+                                class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm"
+                                placeholder="jane@executive.com">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">LinkedIn Profile
+                                URL</label>
+                            <input type="url" name="linkedin" required
+                                class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm"
+                                placeholder="https://linkedin.com/in/janesmith">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 mb-6">
+                        <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Current Role &
+                            Company</label>
+                        <input type="text" name="role_company" required
+                            class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm"
+                            placeholder="e.g. CTO at TechCorp">
+                    </div>
+
+                    <div class="space-y-2 mb-8">
+                        <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Why do you want to
+                            mentor?</label>
+                        <textarea name="message"
+                            class="w-full bg-navy-dark/50 border border-white/10 p-4 text-white focus:border-gold focus:outline-none transition-colors rounded-sm h-32 resize-none"
+                            placeholder="Briefly describe your expertise and motivation..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full btn-shine bg-white text-navy font-bold py-4 uppercase tracking-widest hover:bg-gold transition-colors shadow-lg shadow-gold/5 border border-white/10">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

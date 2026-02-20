@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlfaDUX | Leader of Leaders</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0a192f',
+                        'navy-light': '#112240',
+                        'navy-dark': '#020c1b',
+                        gold: '#E5E4E2', // Platinum
+                        'gold-light': '#F5F5F0', // Lighter Platinum
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-navy text-white overflow-x-hidden selection:bg-gold selection:text-navy">
+
+    <!-- Navbar -->
+    <nav class="navbar-fixed fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center transition-all duration-300">
+                <!-- Brand -->
+                <a href="{{ url_for('home') }}" class="flex items-center gap-3 group z-50">
+                    <div class="relative w-10 h-10 flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 text-gold stroke-1" stroke="currentColor">
+                            <path d="M12 2L2 12l10 10 10-10L12 2z" stroke-width="1.5" />
+                        </svg>
+                        <span class="absolute text-gold font-serif font-bold text-lg">α</span>
+                    </div>
+                    <div class="text-3xl tracking-wider group-hover:opacity-80 transition-opacity flex items-baseline">
+                        <span
+                            class="font-serif italic text-[#E5E4E2] drop-shadow-[0_0_10px_rgba(229,228,226,0.5)]">Alfa</span>
+                        <span
+                            class="font-sans font-extrabold text-[#E5E4E2] drop-shadow-[0_0_10px_rgba(229,228,226,0.5)] ml-1">DUX</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="{{ url_for('home') }}"
+                        class="text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors relative group {% if page == 'home' %}text-gold{% else %}text-slate-300{% endif %}">
+                        Home
+                        <span
+                            class="absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 {% if page == 'home' %}w-full{% else %}w-0 group-hover:w-full{% endif %}"></span>
+                    </a>
+
+                    <a href="{{ url_for('mba_india') }}"
+                        class="text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors relative group {% if page == 'mba-india' %}text-gold{% else %}text-slate-300{% endif %}">
+                        MBA
+                        <span
+                            class="absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 {% if page == 'mba-india' %}w-full{% else %}w-0 group-hover:w-full{% endif %}"></span>
+                    </a>
+
+                    <a href="{{ url_for('global_mba') }}"
+                        class="text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors relative group {% if page == 'global-mba' %}text-gold{% else %}text-slate-300{% endif %}">
+                        Global MBA
+                        <span
+                            class="absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 {% if page == 'global-mba' %}w-full{% else %}w-0 group-hover:w-full{% endif %}"></span>
+                    </a>
+
+                    <a href="{{ url_for('dba_overview') }}"
+                        class="text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors relative group {% if page == 'dba' %}text-gold{% else %}text-slate-300{% endif %}">
+                        DBA
+                        <span
+                            class="absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 {% if page == 'dba' %}w-full{% else %}w-0 group-hover:w-full{% endif %}"></span>
+                    </a>
+
+                    <a href="{{ url_for('mentors') }}"
+                        class="text-xs font-bold uppercase tracking-widest hover:text-gold transition-colors relative group {% if page == 'mentors' %}text-gold{% else %}text-slate-300{% endif %}">
+                        Mentors
+                        <span
+                            class="absolute -bottom-1 left-0 h-[2px] bg-gold transition-all duration-300 {% if page == 'mentors' %}w-full{% else %}w-0 group-hover:w-full{% endif %}"></span>
+                    </a>
+
+                    <a href="{{ url_for('dba_overview') }}"
+                        class="px-7 py-3 rounded-full font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-gold to-yellow-500 text-navy hover:to-white transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden z-50 text-white hover:text-gold transition-colors focus:outline-none p-2">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 bg-navy-dark/98 backdrop-blur-xl z-50 flex flex-col items-center justify-center p-6 transition-all duration-300 opacity-0 translate-x-full">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-gold">
+            <i data-lucide="x" width="32" height="32"></i>
+        </button>
+        <div class="flex flex-col space-y-8 text-center w-full max-w-sm">
+            <a href="{{ url_for('home') }}"
+                class="text-3xl font-serif text-white hover:text-gold transition-colors">Home</a>
+            <a href="{{ url_for('mba_india') }}"
+                class="text-3xl font-serif text-white hover:text-gold transition-colors">MBA (India)</a>
+            <a href="{{ url_for('global_mba') }}"
+                class="text-3xl font-serif text-white hover:text-gold transition-colors">Global MBA</a>
+            <a href="{{ url_for('dba_overview') }}"
+                class="text-3xl font-serif text-white hover:text-gold transition-colors">DBA</a>
+            <a href="{{ url_for('dba_overview') }}"
+                class="bg-gold text-navy px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest shadow-xl">Apply
+                Now</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-dark pt-24 pb-10 relative overflow-hidden mt-20">
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+                <!-- Brand -->
+                <div>
+                    <a href="{{ url_for('home') }}" class="flex items-center gap-2 mb-6">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-[#E5E4E2] to-slate-400 rounded-sm flex items-center justify-center text-navy font-serif font-bold text-xl drop-shadow-[0_0_5px_rgba(229,228,226,0.8)]">
+                            A</div>
+                        <div class="text-2xl tracking-wider flex items-baseline">
+                            <span
+                                class="font-serif italic text-[#E5E4E2] drop-shadow-[0_0_8px_rgba(229,228,226,0.3)]">Alfa</span>
+                            <span
+                                class="font-sans font-extrabold text-[#E5E4E2] drop-shadow-[0_0_8px_rgba(229,228,226,0.3)] ml-1">DUX</span>
+                        </div>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">The platinum standard in executive education.</p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-[0.2em] mb-8">Programs</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="{{ url_for('mba_india') }}" class="hover:text-gold transition-colors">MBA
+                                (India)</a></li>
+                        <li><a href="{{ url_for('global_mba') }}" class="hover:text-gold transition-colors">Global
+                                MBA</a></li>
+                        <li><a href="{{ url_for('dba_overview') }}"
+                                class="hover:text-gold transition-colors font-semibold text-white">DBA</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-[0.2em] mb-8">Contact</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 text-gold mr-3"></i>
+                            D4, 4th Floor, Silver Cloud Opp. to KIMS Gachibowli Gachibowli, Hyderabad</li>
+                        <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 text-gold mr-3"></i>
+                            Block 1, 2nd Floor, BMA Towers Opp. Raghavendra Herbals Vanasthalipuram, Hyderabad</li>
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 text-gold mr-3"></i>
+                            info@alfadux.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-slate-500 uppercase tracking-wider">
+                &copy; 2026 AlfaDUX. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Us Floating Button -->
+    <a href="tel:918885554048"
+        class="fixed bottom-44 lg:bottom-24 right-6 z-50 bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition-all duration-300 hover:scale-110 flex items-center justify-center group">
+        <!-- Tooltip -->
+        <span
+            class="absolute right-full mr-3 bg-white text-navy px-3 py-1 rounded text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">Call
+            Us</span>
+
+        <!-- Icon -->
+        <i data-lucide="phone" class="w-8 h-8 fill-current"></i>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/918885554048?text=Hello%20AlfaDUX%2C%20I%20am%20interested%20in%20your%20executive%20programs.%20Can%20you%20please%20guide%20me%3F"
+        target="_blank"
+        class="fixed bottom-24 lg:bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] transition-all duration-300 hover:scale-110 flex items-center justify-center group">
+        <!-- Tooltip -->
+        <span
+            class="absolute right-full mr-3 bg-white text-navy px-3 py-1 rounded text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">Chat
+            with us</span>
+
+        <!-- Icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Social Media Sticky Sidebar (Desktop: Left, Mobile: Bottom) -->
+    <div
+        class="fixed z-50 shadow-xl bg-navy-dark/90 backdrop-blur-sm border-t lg:border-t-0 lg:border-r border-white/10 
+               bottom-0 left-0 w-full flex flex-row justify-around items-center h-16 
+               lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto lg:w-auto lg:h-auto lg:flex-col lg:rounded-r-lg lg:justify-start">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/alfadux/"
+            class="p-3 text-slate-400 hover:text-white hover:bg-[#0077b5] transition-all duration-300 group relative flex-1 lg:flex-none text-center lg:text-left flex justify-center lg:block">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+            <span
+                class="hidden lg:flex absolute left-full top-0 h-full bg-[#0077b5] text-white items-center px-4 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -z-10 group-hover:z-10 ml-0 group-hover:ml-0 rounded-r-sm">LinkedIn</span>
+        </a>
+        <!-- Instagram -->
+        <a href="#"
+            class="p-3 text-slate-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 transition-all duration-300 group relative flex-1 lg:flex-none text-center lg:text-left flex justify-center lg:block">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+            <span
+                class="hidden lg:flex absolute left-full top-0 h-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white items-center px-4 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -z-10 group-hover:z-10 ml-0 group-hover:ml-0 rounded-r-sm">Instagram</span>
+        </a>
+        <!-- Facebook -->
+        <a href="#"
+            class="p-3 text-slate-400 hover:text-white hover:bg-[#1877F2] transition-all duration-300 group relative flex-1 lg:flex-none text-center lg:text-left flex justify-center lg:block">
+            <i data-lucide="facebook" class="w-5 h-5"></i>
+            <span
+                class="hidden lg:flex absolute left-full top-0 h-full bg-[#1877F2] text-white items-center px-4 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -z-10 group-hover:z-10 ml-0 group-hover:ml-0 rounded-r-sm">Facebook</span>
+        </a>
+        <!-- Twitter (X) -->
+        <a href="#"
+            class="p-3 text-slate-400 hover:text-white hover:bg-black transition-all duration-300 group relative flex-1 lg:flex-none text-center lg:text-left flex justify-center lg:block">
+            <i data-lucide="twitter" class="w-5 h-5"></i>
+            <span
+                class="hidden lg:flex absolute left-full top-0 h-full bg-black text-white items-center px-4 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -z-10 group-hover:z-10 ml-0 group-hover:ml-0 rounded-r-sm">Twitter</span>
+        </a>
+        <!-- YouTube -->
+        <a href="#"
+            class="p-3 text-slate-400 hover:text-white hover:bg-[#FF0000] transition-all duration-300 group relative flex-1 lg:flex-none text-center lg:text-left flex justify-center lg:block">
+            <i data-lucide="youtube" class="w-5 h-5"></i>
+            <span
+                class="hidden lg:flex absolute left-full top-0 h-full bg-[#FF0000] text-white items-center px-4 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -z-10 group-hover:z-10 ml-0 group-hover:ml-0 rounded-r-sm">YouTube</span>
+        </a>
+    </div>
+
+    <!-- Lead Generation Popup -->
+    <div id="lead-popup"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-navy-dark border border-white/10 p-8 rounded-lg shadow-2xl max-w-md w-full relative transform scale-95 transition-transform duration-300"
+            id="lead-popup-content">
+            <!-- Close Button -->
+            <button id="close-popup-btn"
+                class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold mb-2 block">Unlock Potential</span>
+                <h2 class="text-2xl font-serif text-white">Get Exclusive Insights</h2>
+                <p class="text-slate-400 text-sm mt-2">Join our network of elite leaders. Download the program brochure
+                    today.</p>
+            </div>
+
+            <form id="lead-popup-form" action="{{ url_for('contact_submit') }}" method="POST" class="space-y-4">
+                <input type="hidden" name="message" value="Lead Generated from Popup">
+                <div>
+                    <input type="text" name="name" placeholder="Full Name" required
+                        class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-gold transition-colors">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Email Address" required
+                        class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-gold transition-colors">
+                </div>
+                <div>
+                    <input type="tel" name="phone" placeholder="Phone Number" required
+                        class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-gold transition-colors">
+                </div>
+                <div>
+                    <select name="program" required
+                        class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-slate-300 focus:outline-none focus:border-gold transition-colors appearance-none">
+                        <option value="" disabled selected>Select Program Interest</option>
+                        <option value="MBA (India)">MBA (India)</option>
+                        <option value="Global MBA">Global MBA</option>
+                        <option value="DBA">Doctor of Business Administration (DBA)</option>
+                        <option value="Mentorship">Mentorship Network</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="w-full bg-gold text-navy font-bold uppercase tracking-widest py-3 rounded hover:bg-white transition-colors">
+                    Download Brochure
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

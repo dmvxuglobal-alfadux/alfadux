@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="relative min-h-screen py-32 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-navy-dark z-0">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-navy-light to-transparent opacity-30">
+        </div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-navy-light to-transparent opacity-30">
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Hero -->
+        <div class="text-center mb-16 fade-in-section">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold mb-4 block">Switzerland</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6">Rushford Business School</h1>
+            <p class="text-2xl text-slate-300 font-light mb-8">Doctor of Business Administration <br> (DBA)</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span
+                    class="px-6 py-2 border border-white/10 rounded-full text-xs text-slate-300 uppercase tracking-widest">36
+                    Months</span>
+                <span
+                    class="px-6 py-2 border border-white/10 rounded-full text-xs text-slate-300 uppercase tracking-widest">QS
+                    5-Star Rated</span>
+                <span
+                    class="px-6 py-2 border border-white/10 rounded-full text-xs text-slate-300 uppercase tracking-widest">EduQua
+                    Certified</span>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Left Column: Details -->
+            <div class="lg:col-span-2 space-y-12">
+
+                <!-- About -->
+                <div class="glass-panel p-8 rounded-sm fade-in-section">
+                    <h2 class="text-2xl font-serif text-white mb-4">About the Program</h2>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        The Rushford DBA is a research-driven doctoral program designed for professionals who want to
+                        build strong business fundamentals and leadership expertise. It offers a solid foundation in
+                        business strategy before guiding you through your dissertation journey.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        With a **5-Star QS Rating** for online learning and 9 specialized tracks, Rushford provides a
+                        truly global and modernized doctoral experience.
+                    </p>
+                </div>
+
+                <!-- Highlights -->
+                <div class="fade-in-section">
+                    <h3 class="text-xl font-bold text-white mb-6">Program Highlights</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-panel p-6 border-l-2 border-gold">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-2">9 Specializations</h4>
+                            <p class="text-slate-400 text-sm">Finance, Healthcare, HR, Data Science, Marketing, Supply
+                                Chain, and more.</p>
+                        </div>
+                        <div class="glass-panel p-6 border-l-2 border-gold">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-2">PwC Certificate</h4>
+                            <p class="text-slate-400 text-sm">Get PwC Directorship Certification to prepare for board
+                                roles.</p>
+                        </div>
+                        <div class="glass-panel p-6 border-l-2 border-gold">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-2">Global Recognition</h4>
+                            <p class="text-slate-400 text-sm">EduQua certified, and member of AACSB, ACBSP, IACBE.</p>
+                        </div>
+                        <div class="glass-panel p-6 border-l-2 border-gold">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-2">Interactive Support</h4>
+                            <p class="text-slate-400 text-sm">Doubt resolution, mentorship, and optional global
+                                immersions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eligibility -->
+                <div class="glass-panel p-8 rounded-sm fade-in-section">
+                    <h3 class="text-xl font-bold text-white mb-6">Eligibility Criteria</h3>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold mr-3 mt-1"></i>
+                            <span>Master's Degree (or equivalent).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-gold mr-3 mt-1"></i>
+                            <span><strong>OR</strong> Bachelor's Degree with relevant work experience (typically 5+
+                                years).</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <div class="lg:col-span-1 space-y-8">
+                <!-- Investment Card -->
+                <div class="glass-panel p-8 border-t-4 border-gold sticky top-32 fade-in-section">
+                    <div class="text-center mb-8">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Program Fee</p>
+                        <div class="text-3xl font-serif text-white mb-2">Refer to Brochure</div>
+                        <p class="text-[10px] text-slate-500">Flexible EMI Options</p>
+                    </div>
+
+                    <a href="{{ url_for('home', _anchor='contact') }}"
+                        class="w-full btn-shine bg-gold text-navy font-bold py-4 rounded-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg block text-center mb-4">
+                        Enquire Now
+                    </a>
+                    <a href="{{ url_for('home', _anchor='contact') }}" target="_blank"
+                        class="w-full block text-center text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors">
+                        View Official Brochure &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

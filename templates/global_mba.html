@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="pt-32 pb-20 bg-navy min-h-screen">
+    <div class="container mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 fade-in-section">
+            <div class="flex items-center space-x-4 mb-4">
+                <span
+                    class="px-3 py-1 border border-gold/50 text-gold text-[10px] font-bold uppercase tracking-widest">UK
+                    Degree</span>
+                <span
+                    class="px-3 py-1 border border-white/20 text-slate-300 text-[10px] font-bold uppercase tracking-widest">WES
+                    Recognized</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-serif text-white mb-6">Global MBA</h1>
+            <p class="text-slate-400 text-xl font-light border-l-4 border-gold pl-6 max-w-3xl">
+                Master of Business Administration from Liverpool Business School (UK).
+                Experience a truly global curriculum with Dual Alumni status.
+            </p>
+        </div>
+
+        <!-- The "Triple Edge" -->
+        <div class="fade-in-section mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 text-gold/10 group-hover:text-gold/20 transition-colors"><i
+                            data-lucide="globe" width="100" height="100"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2 relative z-10">Liverpool Business School</h3>
+                    <p class="text-slate-400 text-sm relative z-10">Get a full Master's degree from a prestigious UK
+                        university rooted in specialized business research.</p>
+                </div>
+                <div class="glass-panel p-8 relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 text-gold/10 group-hover:text-gold/20 transition-colors"><i
+                            data-lucide="award" width="100" height="100"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2 relative z-10">IMT Ghaziabad</h3>
+                    <p class="text-slate-400 text-sm relative z-10">Receive a PGP in Management from one of India's top
+                        B-schools as part of your pathway.</p>
+                </div>
+                <div class="glass-panel p-8 relative overflow-hidden group">
+                    <div class="absolute -right-4 -top-4 text-gold/10 group-hover:text-gold/20 transition-colors"><i
+                            data-lucide="briefcase" width="100" height="100"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-2 relative z-10">World Education Services</h3>
+                    <p class="text-slate-400 text-sm relative z-10">Your degree is recognized in the US and Canada with
+                        WES equivalence to a Master's.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Curriculum -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-8 space-y-12">
+                <div class="fade-in-section">
+                    <h3 class="text-3xl font-serif text-white mb-8">Curriculum Breakdown</h3>
+                    <div class="space-y-4">
+                        <!-- Module 1 -->
+                        <div class="border border-white/10 bg-navy-light rounded-sm p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-gold font-bold uppercase tracking-wider text-xs">Core Modules</h4>
+                                <span class="text-slate-500 text-xs">First 12 Months</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 text-sm">
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Business Growth Strategies</div>
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Strategic Marketing</div>
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Financial Acumen</div>
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Decision Sciences</div>
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Organizational Behaviour</div>
+                                <div class="flex items-center"><i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-gold mr-2"></i> Digital Business Innovation</div>
+                            </div>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="border border-white/10 bg-navy-light rounded-sm p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-gold font-bold uppercase tracking-wider text-xs">Research &
+                                    Specialization</h4>
+                                <span class="text-slate-500 text-xs">Final 6 Months</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-4">Choose one specialization track and complete your
+                                final dissertation.</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                <span
+                                    class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Marketing</span>
+                                <span
+                                    class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Finance</span>
+                                <span class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Ops &
+                                    Supply Chain</span>
+                                <span class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Human
+                                    Resources</span>
+                                <span
+                                    class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Analytics</span>
+                                <span
+                                    class="bg-white/5 text-white/80 px-3 py-2 text-xs rounded-sm text-center">Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-4 fade-in-section" style="transition-delay: 0.2s">
+                <div class="sticky top-32">
+                    <div class="glass-panel p-8 rounded-sm mb-8">
+                        <h4 class="text-white font-bold mb-6 text-lg">Program Snapshot</h4>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="text-slate-400">Total Duration</span>
+                                <span class="text-white font-bold">18 Months</span>
+                            </li>
+                            <li class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="text-slate-400">Weekly Effort</span>
+                                <span class="text-white font-bold">12-15 Hours</span>
+                            </li>
+                            <li class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="text-slate-400">Total Fee</span>
+                                <span class="text-gold font-bold font-serif text-lg">₹4,50,000</span>
+                            </li>
+                        </ul>
+                        <br>
+                        <a href="{{ url_for('home', _anchor='contact') }}"
+                            class="w-full btn-shine bg-gold text-navy font-bold py-4 rounded-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg block text-center mb-4">
+                            Start Application
+                        </a>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-navy to-navy-dark border border-gold/20 p-6 rounded-sm">
+                        <h4 class="text-gold font-serif text-xl mb-2">UK Immersion</h4>
+                        <p class="text-slate-400 text-sm mb-4">Complete your final week on-campus in Liverpool
+                            (Optional).</p>
+                        <a href="#"
+                            class="text-white underline text-xs decoration-gold/50 hover:text-gold hover:decoration-gold transition-all">View
+                            Immersion Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
